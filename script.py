@@ -13,7 +13,7 @@ CORS(app)
 
 @app.route("/")
 def basic():
-    return 'Coding ki MKC!!'
+    return 'testing endpoint'
 
 @app.route("/email", methods=['POST'])
 
@@ -21,17 +21,17 @@ def scrape_emails():
     data = request.json.get('data')
 
     user_url = (data)
-    if "https://www." not in user_url:
-        user_url = "https://www." + user_url
+
+    if "www."  not in user_url:
+        user_url = "www." + user_url
+    
     if "https://" not in user_url:
         user_url = "https://" + user_url
-        # Regular expression pattern to match the string between "www." and ".com"
+    
     pattern = r"www\.(.*?)\.com"
 
-    # Search for the pattern in the URL string
     match = re.search(pattern, user_url)
 
-    # If a match is found, extract the substring
     if match:
         extracted_string = match.group(1)
         print("Extracted String:", extracted_string)
@@ -75,6 +75,8 @@ def scrape_emails():
     except KeyboardInterrupt:
         print('[-] Closing')
     filtered_strings = [string for string in emails if extracted_string in string]
+    if filtered_strings=="":
+        filtered_strings="No emails found. \n 1)Website was most likely protected against webscrawlers.\n 2)Recheck the web-address you entered."
     return jsonify(filtered_strings)
 
 if __name__ == "__main__":
