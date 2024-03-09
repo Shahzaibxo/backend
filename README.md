@@ -9,7 +9,7 @@ Project link: https://master.d9a5wyjnzb4jd.amplifyapp.com/
 
 ⏳ Loading State: Implemented a loading state mechanism to prevent API spamming and enhance application reliability.
 
-🎨 UI Styling: Utilized Next.js for intuitive UI design and styling, providing an engaging user experience.
+🎨 UI Styling: Utilized Next UI for intuitive UI design and styling, providing an engaging user experience.
 
 🚀 Frontend Deployment: Deployed the frontend using AWS Amplify (serverless).
 
